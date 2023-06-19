@@ -92,6 +92,7 @@ function Month(props: MonthSingleProps | MonthRangeProps | MonthMultiProps) {
     disableWeekDays,
     locale,
     validRange,
+    onMonthViewChange,
   } = props
   const theme = useTheme()
   const textColorOnPrimary = useTextColorOnPrimary()
@@ -105,10 +106,12 @@ function Month(props: MonthSingleProps | MonthRangeProps | MonthMultiProps) {
     const formatter = new Intl.DateTimeFormat(locale, {
       month: 'long',
     })
-    props.onMonthViewChange?.({ month: m, year: y })
     return { monthName: formatter.format(md), month: m, year: y }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [realIndex, locale])
+
+  React.useEffect(() => {
+    onMonthViewChange?.({ month, year })
+  }, [month, year, onMonthViewChange])
 
   const grid = React.useMemo(() => {
     const today = new Date()
