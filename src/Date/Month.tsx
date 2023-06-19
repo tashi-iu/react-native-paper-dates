@@ -49,6 +49,7 @@ interface BaseMonthProps {
   selectColor: string
   roundness: number
   validRange?: ValidRangeType
+  onMonthViewChange?: (change: { month: number; year: number }) => void
 
   // some of these should be required in final implementation
   startDate?: CalendarDate
@@ -104,7 +105,9 @@ function Month(props: MonthSingleProps | MonthRangeProps | MonthMultiProps) {
     const formatter = new Intl.DateTimeFormat(locale, {
       month: 'long',
     })
+    props.onMonthViewChange?.({ month: m, year: y })
     return { monthName: formatter.format(md), month: m, year: y }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [realIndex, locale])
 
   const grid = React.useMemo(() => {

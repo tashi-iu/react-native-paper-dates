@@ -40,6 +40,7 @@ export type BaseCalendarProps = {
   startDate?: CalendarDate
   endDate?: CalendarDate
   dateMode?: 'start' | 'end'
+  onMonthViewChange?: (change: { month: number; year: number }) => void
 }
 
 export type CalendarDate = Date | undefined
@@ -169,6 +170,10 @@ function Calendar(
     [mode, dateMode, onChangeRef, startDateRef, endDateRef, datesRef]
   )
 
+  const handleOnMonthViewChange = (change: { month: number; year: number }) => {
+    props.onMonthViewChange?.(change)
+  }
+
   const firstDate = startDate || date || dates?.[0]
 
   return (
@@ -179,6 +184,7 @@ function Calendar(
         scrollMode={scrollMode}
         renderItem={({ index }) => (
           <Month
+            onMonthViewChange={handleOnMonthViewChange}
             locale={locale}
             mode={mode}
             key={index}
