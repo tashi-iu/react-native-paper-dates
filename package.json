@@ -1,5 +1,5 @@
 {
-  "name": "@tashi_iu/react-native-paper-dates",
+  "name": "@tashi-iu/react-native-paper-dates",
   "version": "0.18.2",
   "description": "Performant Date Picker for React Native Paper",
   "main": "lib/commonjs/index",
