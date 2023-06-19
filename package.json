@@ -39,7 +39,7 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/web-ridge/react-native-paper-dates",
+  "repository": "https://github.com/tashi-iu/react-native-paper-dates",
   "author": "Richard Lindhout <info@webridge.nl> (https://github.com/web-ridge)",
   "license": "MIT",
   "bugs": {
