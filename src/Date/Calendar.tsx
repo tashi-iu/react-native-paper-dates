@@ -96,6 +96,7 @@ function Calendar(
     dates,
     validRange,
     dateMode,
+    onMonthViewChange,
   } = props
 
   const theme = useTheme()
@@ -170,10 +171,6 @@ function Calendar(
     [mode, dateMode, onChangeRef, startDateRef, endDateRef, datesRef]
   )
 
-  const handleOnMonthViewChange = (change: { month: number; year: number }) => {
-    props.onMonthViewChange?.(change)
-  }
-
   const firstDate = startDate || date || dates?.[0]
 
   return (
@@ -184,7 +181,7 @@ function Calendar(
         scrollMode={scrollMode}
         renderItem={({ index }) => (
           <Month
-            onMonthViewChange={handleOnMonthViewChange}
+            onMonthViewChange={onMonthViewChange}
             locale={locale}
             mode={mode}
             key={index}

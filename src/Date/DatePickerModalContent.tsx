@@ -85,6 +85,7 @@ export function DatePickerModalContent(
     dateMode,
     startYear,
     endYear,
+    onMonthViewChange,
   } = props
   const anyProps = props as any
 
@@ -178,6 +179,7 @@ export function DatePickerModalContent(
             endDate={state.endDate}
             date={state.date}
             onChange={onInnerChange}
+            onMonthViewChange={onMonthViewChange}
             disableWeekDays={disableWeekDays}
             dates={state.dates}
             validRange={validRange}
