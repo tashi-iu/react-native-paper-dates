@@ -65,3 +65,5 @@ web-build
 
 # Code Coverage
 /coverage/
+
+.npmrc
